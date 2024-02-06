@@ -71,6 +71,7 @@ let updateLibrary = function(librarySelection, arrayPos){
 
     const newDiv = document.createElement("div");
 
+    const currentBookNumber = document.createElement("p");
     const currentBookTitle = document.createElement("p");
     const currentBookAuthor = document.createElement("p");
     const currentBookPages = document.createElement("p");
@@ -79,9 +80,10 @@ let updateLibrary = function(librarySelection, arrayPos){
 
     console.log(librarySelection.read);
 
-    currentBookTitle.textContent = librarySelection.title;
-    currentBookAuthor.textContent = librarySelection.author;
-    currentBookPages.textContent = librarySelection.pages;
+    currentBookNumber.textContent = 'Book #: ' + (arrayPos + 1);
+    currentBookTitle.textContent = 'Title: ' + librarySelection.title;
+    currentBookAuthor.textContent = 'Author: ' + librarySelection.author;
+    currentBookPages.textContent = 'Page Count: ' + librarySelection.pages;
     currentBookDelete.textContent = 'Remove Book From Library';
 
     if(librarySelection.read == 'true' || librarySelection.read == "Read" || librarySelection.read == true){
@@ -96,6 +98,8 @@ let updateLibrary = function(librarySelection, arrayPos){
     currentBookDelete.classList.add("deleteBtn")
     currentBookDelete.dataset.arraypos = arrayPos;
 
+
+    newDiv.appendChild(currentBookNumber);
     newDiv.appendChild(currentBookTitle);
     newDiv.appendChild(currentBookAuthor);
     newDiv.appendChild(currentBookPages);
